@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Marble Oracle inbox</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#74571A}a:hover{color:#4F3B0F}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F4F1EA; color: #161614; font-family: Manrope, system-ui, sans-serif; display: flex; flex-direction: column; position: relative; overflow: hidden">
+
+  <div style="position: absolute; top: 40px; left: 50%; width: 440px; height: 440px; margin-left: -220px; border-radius: 50%; background: radial-gradient(circle, rgba(31,167,184,0.10) 0%, rgba(31,167,184,0) 60%); pointer-events: none"></div>
+  <div style="position: absolute; top: 90px; left: 50%; width: 340px; height: 340px; margin-left: -170px; border-radius: 50%; border: 1px solid rgba(201,162,74,0.25); pointer-events: none"></div>
+  <div style="position: absolute; top: 130px; left: 50%; width: 260px; height: 260px; margin-left: -130px; border-radius: 50%; border: 1px solid rgba(201,162,74,0.18); pointer-events: none"></div>
+
+  <div style="padding: 60px 28px 0 28px; display: flex; align-items: center; justify-content: space-between">
+    <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #6B6760">Mon 6 Oct</div>
+    <div style="display: flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.08em; color: #0B6B78"><span style="width: 6px; height: 6px; border-radius: 50%; background: #1FA7B8; box-shadow: 0 0 8px rgba(31,167,184,0.8)"></span>SYNCED</div>
+  </div>
+
+  <div style="padding: 54px 28px 0 28px; display: flex; flex-direction: column; align-items: center; gap: 18px; position: relative">
+    <div style="font-family: Cinzel, Georgia, serif; font-weight: 500; font-size: 11px; letter-spacing: 0.3em; color: #74571A">THE ORACLE ASKS</div>
+    <label for="cap-mo" style="font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 500; font-size: 34px; line-height: 1.1; color: #161614; text-align: center">What is on your mind?</label>
+    <div style="width: 100%; display: flex; flex-direction: column; gap: 12px; margin-top: 6px">
+      <textarea id="cap-mo" rows="3" placeholder="Write it down. It will be everywhere you are." style="width: 100%; box-sizing: border-box; resize: none; border: 0; border-bottom: 1px solid #C9A24A; outline: none; background: transparent; font-family: Manrope, system-ui, sans-serif; font-size: 18px; line-height: 1.5; color: #161614; padding: 8px 4px; text-align: center"></textarea>
+      <div style="display: flex; justify-content: center">
+        <button style="height: 48px; padding: 0 26px; border-radius: 24px; border: 1px solid #C9A24A; background: #FFFFFF; color: #74571A; font-family: Cinzel, Georgia, serif; font-weight: 600; font-size: 12px; letter-spacing: 0.22em; display: flex; align-items: center; gap: 10px; cursor: pointer; box-shadow: 0 0 0 4px rgba(31,167,184,0.10)">KEEP<span style="width: 8px; height: 8px; border-radius: 50%; background: #1FA7B8; box-shadow: 0 0 8px rgba(31,167,184,0.8)"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex: 1; padding: 44px 28px 0 28px; display: flex; flex-direction: column">
+    <div style="display: flex; align-items: center; gap: 10px; padding-bottom: 6px">
+      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; color: #74571A">RECENT</span>
+      <div style="flex: 1; height: 1px; background: linear-gradient(90deg, #C9A24A 0%, rgba(201,162,74,0) 100%)"></div>
+      <a href="#all" style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.08em; text-decoration: none">ALL · 4</a>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(201,162,74,0.25)">
+      <button aria-label="Mark done" style="width: 44px; height: 44px; margin: -10px 0 -10px -12px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0"><span style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid #C9A24A; display: block"></span></button>
+      <div style="flex: 1; min-width: 0; font-size: 15px; line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-left: -8px">Newsletter issue: why local-first beats cloud-first for personal tools</div>
+      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #0B6B78; flex-shrink: 0">#writing</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(201,162,74,0.25)">
+      <button aria-label="Mark done" style="width: 44px; height: 44px; margin: -10px 0 -10px -12px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0"><span style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid #C9A24A; display: block"></span></button>
+      <div style="flex: 1; min-width: 0; font-size: 15px; line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-left: -8px">Ask the cousin about the Q4 data feed before Friday</div>
+      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #0B6B78; flex-shrink: 0">#money</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(201,162,74,0.25)">
+      <button aria-label="Mark done" style="width: 44px; height: 44px; margin: -10px 0 -10px -12px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0"><span style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid #C9A24A; display: block"></span></button>
+      <div style="flex: 1; min-width: 0; font-size: 15px; line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-left: -8px">Re-read Plato's Critias for the ring-city metaphor</div>
+      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #0B6B78; flex-shrink: 0">#learn</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px; padding: 12px 0; opacity: 0.5">
+      <button aria-label="Mark not done" style="width: 44px; height: 44px; margin: -10px 0 -10px -12px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0"><span style="width: 18px; height: 18px; border-radius: 50%; background: #C9A24A; display: block"></span></button>
+      <div style="flex: 1; min-width: 0; font-size: 15px; line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-decoration: line-through; margin-left: -8px">Book the Athens flights</div>
+      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #0B6B78; flex-shrink: 0">#life</span>
+    </div>
+  </div>
+
+  <div style="padding: 0 28px 28px 28px; display: flex; justify-content: center">
+    <div style="display: flex; align-items: center; gap: 10px"><div style="width: 24px; height: 1px; background: #C9A24A"></div><div style="width: 5px; height: 5px; background: #C9A24A; transform: rotate(45deg)"></div><div style="width: 24px; height: 1px; background: #C9A24A"></div></div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

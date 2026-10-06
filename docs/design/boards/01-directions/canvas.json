@@ -1,0 +1,25 @@
+{
+  "v": 3,
+  "createdOnFiles": { "v": 1, "at": "2026-10-06T14:10:00Z" },
+  "title": "Atlantis Directions",
+  "launch": { "view": "canvas" },
+  "pages": [],
+  "boards": {
+    "Main.dc.html":          { "x": 0,    "y": 0,    "w": 390, "h": 844, "title": "1 · Isu Marble (light)" },
+    "Nexus.dc.html":         { "x": 470,  "y": 0,    "w": 390, "h": 844, "title": "2 · Nexus (dark)" },
+    "Elysium.dc.html":       { "x": 940,  "y": 0,    "w": 390, "h": 844, "title": "3 · Elysium Dawn" },
+    "Hades.dc.html":         { "x": 1410, "y": 0,    "w": 390, "h": 844, "title": "4 · Hades Ember" },
+    "MarbleTokens.dc.html":  { "x": 0,    "y": 964,  "w": 390, "h": 300, "title": "Tokens · Isu Marble" },
+    "NexusTokens.dc.html":   { "x": 470,  "y": 964,  "w": 390, "h": 300, "title": "Tokens · Nexus" },
+    "ElysiumTokens.dc.html": { "x": 940,  "y": 964,  "w": 390, "h": 300, "title": "Tokens · Elysium Dawn" },
+    "HadesTokens.dc.html":   { "x": 1410, "y": 964,  "w": 390, "h": 300, "title": "Tokens · Hades Ember" }
+  },
+  "order": [
+    "Main.dc.html", "Nexus.dc.html", "Elysium.dc.html", "Hades.dc.html",
+    "MarbleTokens.dc.html", "NexusTokens.dc.html", "ElysiumTokens.dc.html", "HadesTokens.dc.html"
+  ],
+  "notes": {
+    "t1": { "x": 0, "y": -300, "text": "Capture inbox · four directions from the Fate of Atlantis", "kind": "title1", "maxW": 1800 }
+  },
+  "designSystems": []
+}

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nexus tokens</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Space+Grotesk:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#D8B45A}a:hover{color:#F0D07A}
+</style>
+</helmet>
+<div style="width: 390px; height: 300px; box-sizing: border-box; background: #121826; color: #E6E1D6; font-family: 'Space Grotesk', system-ui, sans-serif; padding: 24px; display: flex; flex-direction: column; gap: 18px; border: 1px solid rgba(216,180,90,0.3)">
+  <div style="display: flex; flex-direction: column; gap: 4px">
+    <div style="font-family: Cinzel, Georgia, serif; font-weight: 600; font-size: 18px; letter-spacing: 0.12em; color: #D8B45A">NEXUS</div>
+    <div style="font-size: 13px; color: #9A958A">The Isu vault at night. Obsidian glass, gold filigree, cyan energy.</div>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px">
+    <div style="display: flex; flex-direction: column; gap: 6px"><div style="height: 44px; border-radius: 6px; background: #0B0E14; border: 1px solid rgba(255,255,255,0.1)"></div><div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; color: #9A958A">0B0E14</div></div>
+    <div style="display: flex; flex-direction: column; gap: 6px"><div style="height: 44px; border-radius: 6px; background: #E6E1D6"></div><div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; color: #9A958A">E6E1D6</div></div>
+    <div style="display: flex; flex-direction: column; gap: 6px"><div style="height: 44px; border-radius: 6px; background: #D8B45A"></div><div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; color: #9A958A">D8B45A</div></div>
+    <div style="display: flex; flex-direction: column; gap: 6px"><div style="height: 44px; border-radius: 6px; background: #4FD1E0"></div><div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; color: #9A958A">4FD1E0</div></div>
+    <div style="display: flex; flex-direction: column; gap: 6px"><div style="height: 44px; border-radius: 6px; background: #9A958A"></div><div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; color: #9A958A">9A958A</div></div>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 8px; border-top: 1px solid rgba(216,180,90,0.3); padding-top: 14px">
+    <div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-family: Cinzel, Georgia, serif; font-size: 20px; letter-spacing: 0.1em; color: #D8B45A">Cinzel</span><span style="font-size: 12px; color: #9A958A">headings</span></div>
+    <div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 16px">Space Grotesk</span><span style="font-size: 12px; color: #9A958A">body, slightly technical</span></div>
+    <div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px">JetBrains Mono</span><span style="font-size: 12px; color: #9A958A">tags, meta, status</span></div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":300}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

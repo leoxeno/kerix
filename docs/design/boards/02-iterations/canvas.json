@@ -1,0 +1,25 @@
+{
+  "v": 3,
+  "createdOnFiles": { "v": 1, "at": "2026-10-06T14:30:00Z" },
+  "title": "Atlantis Iterations",
+  "launch": { "view": "canvas" },
+  "pages": [],
+  "boards": {
+    "Main.dc.html":         { "x": 0,    "y": 0,    "w": 390, "h": 844, "title": "Marble · A Ring" },
+    "MarbleSeam.dc.html":   { "x": 470,  "y": 0,    "w": 390, "h": 844, "title": "Marble · B Seam" },
+    "MarbleOracle.dc.html": { "x": 940,  "y": 0,    "w": 390, "h": 844, "title": "Marble · C Oracle" },
+    "MarbleStele.dc.html":  { "x": 1410, "y": 0,    "w": 390, "h": 844, "title": "Marble · D Stele" },
+    "NexusRing.dc.html":    { "x": 0,    "y": 964,  "w": 390, "h": 844, "title": "Nexus · A Ring" },
+    "NexusSeam.dc.html":    { "x": 470,  "y": 964,  "w": 390, "h": 844, "title": "Nexus · B Seam" },
+    "NexusOracle.dc.html":  { "x": 940,  "y": 964,  "w": 390, "h": 844, "title": "Nexus · C Oracle" },
+    "NexusStele.dc.html":   { "x": 1410, "y": 964,  "w": 390, "h": 844, "title": "Nexus · D Stele" }
+  },
+  "order": [
+    "Main.dc.html", "MarbleSeam.dc.html", "MarbleOracle.dc.html", "MarbleStele.dc.html",
+    "NexusRing.dc.html", "NexusSeam.dc.html", "NexusOracle.dc.html", "NexusStele.dc.html"
+  ],
+  "notes": {
+    "t1": { "x": 0, "y": -300, "text": "Four compositions · Ring, Seam, Oracle, Stele · light above, dark below", "kind": "title1", "maxW": 1800 }
+  },
+  "designSystems": []
+}

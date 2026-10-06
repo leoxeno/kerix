@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+/*
+  Kerix design tokens · ADR-001 (docs/design/DESIGN-DECISIONS.md)
+  Light = Isu Marble. Dark = Nexus. Same geometry, different physics:
+  light separates layers with shadow, dark separates them with glow.
+*/
+
+:root {
+  color-scheme: light;
+
+  --ground: #EDE9E0;      /* page ground (Seam variant) */
+  --slab: #F8F6F0;        /* a thought's slab */
+  --slab-line: #DED8C8;   /* slab border */
+  --surface: #FFFFFF;     /* capture slab */
+  --ink: #161614;         /* body text */
+  --mute: #6B6760;        /* captions, 4.7:1 on ground */
+  --gold: #C9A24A;        /* decorative seams, rings, diamonds */
+  --gold-ink: #74571A;    /* gold that must be read as text */
+  --cyan: #1FA7B8;        /* the glint, the sync pulse */
+  --cyan-ink: #0B6B78;    /* cyan that must be read as text */
+  --glow: 0 0 0 transparent;                 /* no glow in daylight */
+  --lift: 0 10px 30px rgba(22, 22, 20, 0.08); /* shadow lifts the capture slab */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --ground: #07090D;
+    --slab: #11151E;
+    --slab-line: rgba(216, 180, 90, 0.22);
+    --surface: #121826;
+    --ink: #E6E1D6;
+    --mute: #9A958A;
+    --gold: #D8B45A;
+    --gold-ink: #D8B45A;
+    --cyan: #4FD1E0;
+    --cyan-ink: #4FD1E0;
+    --glow: 0 0 10px rgba(79, 209, 224, 0.9);
+    --lift: 0 0 0 1px rgba(79, 209, 224, 0.3), 0 0 24px rgba(79, 209, 224, 0.2), 0 14px 40px rgba(0, 0, 0, 0.5);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ground: #07090D;
+  --slab: #11151E;
+  --slab-line: rgba(216, 180, 90, 0.22);
+  --surface: #121826;
+  --ink: #E6E1D6;
+  --mute: #9A958A;
+  --gold: #D8B45A;
+  --gold-ink: #D8B45A;
+  --cyan: #4FD1E0;
+  --cyan-ink: #4FD1E0;
+  --glow: 0 0 10px rgba(79, 209, 224, 0.9);
+  --lift: 0 0 0 1px rgba(79, 209, 224, 0.3), 0 0 24px rgba(79, 209, 224, 0.2), 0 14px 40px rgba(0, 0, 0, 0.5);
+}
+
+@theme inline {
+  --color-ground: var(--ground);
+  --color-slab: var(--slab);
+  --color-slab-line: var(--slab-line);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-mute: var(--mute);
+  --color-gold: var(--gold);
+  --color-gold-ink: var(--gold-ink);
+  --color-cyan: var(--cyan);
+  --color-cyan-ink: var(--cyan-ink);
+
+  --font-display: "Cinzel", Georgia, serif;
+  --font-body: "Manrope", "Space Grotesk", system-ui, sans-serif;
+  --font-thought: "Cormorant Garamond", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --shadow-glow: var(--glow);
+  --shadow-lift: var(--lift);
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* The seam: a hairline of gold with a short cyan glint. Position of the glint varies per slab. */
+.seam {
+  display: flex;
+  height: 1px;
+}
+.seam > .seam-gold { flex: 1; background: var(--gold); opacity: 0.8; }
+.seam > .seam-glint { width: 28px; background: var(--cyan); box-shadow: var(--glow); }
