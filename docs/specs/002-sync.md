@@ -88,8 +88,8 @@ The flow itself is in the Oracle style: "Who speaks?", an email field (`autocomp
 7. Given a pull that fails midway, when the next pull runs, then no row is skipped (the cursor only advances after all rows of a page are written).
 8. Given a pulled row older than the local row, when applied, then the local row is kept and is still in the outbox.
 9. Given a signed-in device, when the user signs out, then local thoughts remain visible and the header reads LOCAL.
-10. *(proposed 2026-10-06, pending approval)* Given the sign-in sheet open on the code step, when a session appears from any source (the one-tap link opened in another tab, or another tab of the same browser signing in), then the sheet closes by itself within 2 seconds and the header reads SYNCED.
-11. *(proposed 2026-10-06, pending approval)* Given a code that was already used or has expired, when it is entered, then the sheet says in plain words that the code is spent and offers to send a new one; the raw server message never appears.
+10. *(added 2026-10-06, approved by the owner the same day)* Given the sign-in sheet open on the code step, when a session appears from any source (the one-tap link opened in another tab, or another tab of the same browser signing in), then the sheet closes by itself within 2 seconds and the header reads SYNCED.
+11. *(added 2026-10-06, approved by the owner the same day)* Given a code that was already used or has expired, when it is entered, then the sheet says in plain words that the code is spent and offers to send a new one; the raw server message never appears.
 
 ## Testing
 - `src/sync/engine.test.ts` with an in-memory fake relay and two Dexie databases standing in for two devices: criteria 1 (as push then pull), 2, 3, 7, 8.
@@ -110,7 +110,7 @@ Created as Draft, pulled forward from milestone 5 to milestone 2 by the owner. A
 ### 2026-10-06, later
 Criterion 6 verified against the live project with `supabase/tests/rls-isolation.mjs`: the second user sees 0 of the owner's rows, an update of the owner's row by id affects 0 rows, an insert claiming the owner's `user_id` is stamped to the second user by the trigger, and a request with no user is refused with 401. The throwaway user is deleted at the end; no rows remain. Impact on completed work: none.
 
-### 2026-10-06, evening · proposed refinement, pending owner approval
+### 2026-10-06, evening · refinement, approved by the owner the same day
 Hand test on phone plus laptop over the dev tunnel: criterion 1 met (server record: phone capture 18:28:35 UTC, pushed at 18:30:19 once the session existed). Criterion 2 partly shown: one thought captured offline was pushed 14 s after reconnecting with no action; the two-thoughts-in-order case still needs a clean repeat. Criterion 9 not yet run.
 
 Found and reproduced: when the person taps the email's one-tap link *and* has the code step open, the link signs the browser in but the sheet stays open and the spent code answers "Token has expired or is invalid". Seen twice by the owner, reproduced deterministically in a scripted two-tab Chromium. Proposed changes:

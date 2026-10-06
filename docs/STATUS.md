@@ -7,7 +7,7 @@ Updated 2026-10-06. The one page to read when picking Kerix up cold. Keep it sho
 | Spec | Status | Note |
 |---|---|---|
 | 001 Capture inbox | Done | Verified on Android. |
-| 002 Sync across devices | Implementing | Code and server done, mail configured. Criteria 1 and 6 met. Criterion 2: offline drain shown, ordered pair still to repeat. Criterion 9 not run. **Refinement (criteria 10, 11) pending approval.** |
+| 002 Sync across devices | Implementing | Code and server done, mail configured. Criteria 1 and 6 met. Criterion 2: offline drain shown, ordered pair still to repeat. Criterion 9 not run. **Refinement (criteria 10, 11) approved; implementation next.** |
 | 003 Deploy to Cloudflare Pages | Draft | Awaiting owner approval. Needed before daily use of sync. |
 | ADR-0005 Performance budget | Proposed | Owner stated the principle on 2026-10-06; numbers measured; awaiting approval. |
 
@@ -15,7 +15,7 @@ Build order: capture → sync → done → tags → search (changed by the owner
 
 ## Next action
 
-Owner approves or amends three drafts: the spec 002 refinement (criteria 10, 11), spec 003 (three draft choices in its revision history), ADR-0005 (budgets). Then: implement the 002 refinement (Phase B), repeat criterion 2 with two thoughts captured offline, run criterion 9, mark 002 Done, implement 003.
+Spec 002 criteria 10 and 11 approved on 2026-10-06. Owner still to approve spec 003 (three draft choices in its revision history), ADR-0005 (budgets). Then: implement the 002 refinement (Phase B), repeat criterion 2 with two thoughts captured offline, run criterion 9, mark 002 Done, implement 003.
 
 ## Environment notes for the agent
 
