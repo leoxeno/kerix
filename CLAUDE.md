@@ -12,7 +12,7 @@ This file is the stable root of the spec tree. It changes rarely. Everything tha
 
 | When you are about to… | Read first |
 |---|---|
-| Do anything | this file |
+| Do anything | this file, then [docs/STATUS.md](docs/STATUS.md) for where we are and what is next |
 | Touch product scope or milestones | [docs/PRODUCT.md](docs/PRODUCT.md) |
 | Argue about why Kerix exists | [docs/VISION.md](docs/VISION.md) |
 | Change structure, data flow, sync, dispatch | [docs/architecture/OVERVIEW.md](docs/architecture/OVERVIEW.md) |
