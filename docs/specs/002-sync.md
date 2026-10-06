@@ -1,6 +1,6 @@
 # Spec 002 · Sync across devices
 
-**Status:** Draft · **Milestone:** 2 · **Owner approval:** pending
+**Status:** Approved · **Milestone:** 2 · **Owner approval:** approved 2026-10-06
 
 ## Summary
 A thought captured on one device appears on every other signed-in device within seconds, and a thought captured offline is pushed without any user action once the device is back online. The device database stays the source of truth; the relay only carries changes between devices.
@@ -31,12 +31,12 @@ After spec 001 each device is an island. The owner captured on the phone and saw
 - UI: a sign-in screen; the header status; nothing else.
 
 ## Assumptions
-- Supabase Auth with a **six-digit email code** (no password, no link to click). Codes work better than magic links on a phone, where a link opens in a different browser than the installed app.
+- Supabase Auth by email. One email carries both a **six-digit code** and a link: the laptop clicks, the phone types. Sessions do not expire, so each device asks exactly once. The code field carries the `one-time-code` autofill hint.
 - One user. The schema carries `user_id` anyway so a second user is a policy, not a migration.
 - Server time is the cursor for pulls (`server_updated_at`, set by a database trigger), so device clock skew cannot cause missed rows.
 - Device time is the conflict judge (`updatedAt`), because that is what the user experienced as "later".
 - Realtime notifications are a hint to pull sooner, never the only path. A missed notification is corrected by the next scheduled or event-driven pull.
-- The owner creates the Supabase project and pastes the two values into `.env.local`; the agent writes the migration and the owner runs it in the SQL editor (or the agent runs it via the Supabase CLI if given a project access token in an untracked file).
+- The owner creates the Supabase project and puts the project URL, the anon key and a personal access token into the untracked `.env.local`. The agent writes migrations into `supabase/migrations/` and applies them through the Supabase management API with that token, and configures the auth email template the same way. Secrets never enter the chat, the repo, or the session notes.
 
 ## Behaviour
 
@@ -73,8 +73,10 @@ thoughts(id uuid pk, user_id uuid not null, text, tags text[], created_at, updat
 ### Conflicts
 Whole-row last-writer-wins by device `updatedAt`, applied identically on the server and on every device. With one user the only realistic conflict is "done on the phone, un-done on the laptop while the phone was offline"; the later tap wins everywhere. Acceptable, and stated.
 
-### Sign-in
-A screen in the Oracle style: "Who speaks?", an email field, then a six-digit code field. Skippable: "Stay local" keeps the app exactly as spec 001 and shows LOCAL in the header. Sign-out keeps local data on the device (a device that signs out does not forget; it stops syncing).
+### Sign-in, progressively disclosed
+First launch is capture, never a form. After the first thought is saved on a device that is not signed in, one quiet slab appears under the capture bar: *"Keep this everywhere you are."* with a single action, *Sign in*. Swiping or dismissing it hides it for the session; it returns only after a capture on a later day. The header word LOCAL is tappable at any time and opens the same flow.
+
+The flow itself is in the Oracle style: "Who speaks?", an email field (`autocomplete="email"`), then a six-digit code field (`inputmode="numeric"`, `autocomplete="one-time-code"`). After sign-in that device never asks again. Sign-out lives in a settings sheet behind the header mark; signing out keeps local data on the device (a device that signs out does not forget; it stops syncing).
 
 ## Acceptance criteria
 1. Given devices A and B signed in as the same user and online, when A captures "Buy olives", then B shows "Buy olives" at the top of its inbox within 5 seconds without any user action.
@@ -96,10 +98,8 @@ A screen in the Oracle style: "Who speaks?", an email field, then a six-digit co
 - Criteria 1 and 2 also verified by hand on phone plus laptop over the dev tunnel; recorded in the completion report.
 
 ## Open questions
-- **Auth method:** six-digit email code (proposed) or GitHub sign-in (one tap for the owner, but ties the app to GitHub for any future user)?
-- **Who runs the migration:** owner pastes the SQL into the Supabase editor (proposed, nothing secret leaves the owner's hands), or owner gives the agent a project access token in an untracked file?
-- **Sign-in gate:** show the sign-in screen on first launch (proposed, with "Stay local" visible), or hide it behind a header tap so the first launch is pure capture?
+None.
 
 ## Revision history
 ### 2026-10-06
-Created as Draft, pulled forward from milestone 5 to milestone 2 by the owner.
+Created as Draft, pulled forward from milestone 5 to milestone 2 by the owner. Approved the same day with three decisions: auth by six-digit email code (the email also carries a link); the agent applies migrations with an owner-issued access token kept in `.env.local`; sign-in is progressively disclosed after the first capture, never on first launch. OAuth providers rejected because installed PWAs on iOS lose the session on the redirect.
