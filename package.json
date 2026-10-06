@@ -12,6 +12,7 @@
     "typecheck": "tsc -b --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
+    "check": "./scripts/check.sh",
     "preview": "vite preview --host"
   },
   "dependencies": {

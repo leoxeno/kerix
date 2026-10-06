@@ -25,3 +25,6 @@ dist-ssr
 
 # Private session notes
 .specstory/
+
+# Local privacy patterns for scripts/check.sh (never commit)
+.privacy-patterns

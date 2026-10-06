@@ -31,13 +31,19 @@ Version 0.1, the foundation. Nothing works yet except the frame. Follow the buil
 
 Two modes from one set of tokens. Light is *Isu Marble*: warm stone, hairline gold seams, a cyan glint. Dark is *Nexus*: obsidian, gold filigree, cyan glow. The design decisions, every alternative considered, and the mockup sources are in [docs/design](docs/design).
 
+## How it is built, the method
+
+Spec-driven. The repository is the source of truth, not any chat. Agent rules live in [CLAUDE.md](CLAUDE.md) (mirrored as `AGENTS.md`), which links to the vision, architecture, data model, conventions, ADRs and numbered feature specs under [docs/](docs/). Every feature starts as a spec with acceptance criteria, then tests, then code. One script, `scripts/check.sh`, defines green for hooks and CI alike.
+
 ## Run it
 
 ```bash
 npm install
+./scripts/setup-dev.sh   # once: git hooks
 npm run dev        # on your LAN too, so you can open it on your phone
 npm test
 npm run build
+./scripts/check.sh # the full gate
 ```
 
 ## Name
