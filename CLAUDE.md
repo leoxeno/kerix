@@ -22,6 +22,7 @@ This file is the stable root of the spec tree. It changes rarely. Everything tha
 | Build a feature | its spec in [docs/specs/](docs/specs/) and [docs/specs/README.md](docs/specs/README.md) |
 | Make a durable architectural choice | [docs/decisions/](docs/decisions/) (ADRs) |
 | Understand the method | [docs/reference/README.md](docs/reference/README.md) |
+| Spawn a subagent, pick a model, or notice the session has run long | [.claude/rules/context-economy.md](.claude/rules/context-economy.md) (auto-loads; this row is for humans) |
 
 ## How work happens: spec-driven, two phases
 
@@ -41,6 +42,10 @@ A failing test is evidence, not automatically the truth. The approved spec is th
 - **After 3 failed targeted attempts: stop and diagnose.** Classify as implementation defect, test defect, specification defect, environment or tooling issue, dependency or version issue, or unclear requirement.
 - Never delete, skip, disable or weaken a test to get green. Never raise a timeout without a root cause. Never suppress an exception to satisfy a test. Stop on oscillation.
 - If a test contradicts the spec, investigate the mismatch. The fix may belong in the test or the spec.
+
+## Context and model tiers
+
+Context is a budget spent per turn: checkpoint at every task boundary into `docs/STATUS.md` or the spec, offer a fresh session with a paste-ready resume prompt, and read narrowly. Phase A is session work. Phase B delegates by tier: **Opus = judgment** (verification against acceptance criteria never runs below it), **Sonnet = volume** (implementing an approved spec, tests, file sweeps), **Haiku = clerical**. When the session runs Fable, Fable orchestrates and rules; it is never a subagent tier. A cheap tier may gather evidence; it may never rule on it. These lines survive compaction; the full rule is in [.claude/rules/context-economy.md](.claude/rules/context-economy.md).
 
 ## Non-negotiables
 
