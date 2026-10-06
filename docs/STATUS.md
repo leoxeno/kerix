@@ -7,14 +7,14 @@ Updated 2026-10-06. The one page to read when picking Kerix up cold. Keep it sho
 | Spec | Status | Note |
 |---|---|---|
 | 001 Capture inbox | Done | Verified on Android. |
-| 002 Sync across devices | Implementing | Code and server done, mail configured. **Two-device hand test pending** (criteria 1, 2, 9). Criterion 6 needs a second-account SQL test. |
-| 003 Deploy to Cloudflare Pages | not written | Next spec. Needed before daily use of sync. |
+| 002 Sync across devices | Implementing | Code and server done, mail configured. Criterion 6 verified on the live project (`supabase/tests/rls-isolation.mjs`). **Two-device hand test pending** (criteria 1, 2, 9). |
+| 003 Deploy to Cloudflare Pages | Draft | Awaiting owner approval. Needed before daily use of sync. |
 
 Build order: capture → sync → done → tags → search (changed by the owner on 2026-10-06, see PRODUCT.md).
 
 ## Next action
 
-Owner runs the two-device test (laptop and phone over a dev tunnel, sign in with the email code on each, capture on one, watch the other). Report what the header says. Then the agent marks 002 Done or fixes, and writes spec 003 (Phase A, stop for approval).
+Owner runs the two-device test (laptop and phone over a dev tunnel, sign in with the email code on each, capture on one, watch the other). Report what the header says. Then the agent marks 002 Done or fixes. In parallel the owner reviews spec 003 (three draft choices are listed in its revision history); on approval the agent implements it (Phase B).
 
 ## Environment notes for the agent
 

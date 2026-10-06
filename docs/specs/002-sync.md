@@ -94,7 +94,7 @@ The flow itself is in the Oracle style: "Who speaks?", an email field (`autocomp
 - `src/data/thoughts.test.ts` extended: every write adds to the outbox.
 - `src/features/auth/*.test.tsx`: criteria 4 and 9 (signed-out behaviour, sign-out keeps data).
 - Criterion 5: engine test with a relay that throws; status transitions asserted.
-- Criterion 6: a SQL test in `supabase/tests/` run against the project, plus a hand check with two accounts. Recorded in the completion report.
+- Criterion 6: `supabase/tests/rls-isolation.mjs`, run by the agent against the live project (`node supabase/tests/rls-isolation.mjs`). It creates a throwaway second user, queries through the anon key as the client would, tries to update and to insert as the owner, probes anonymously, then deletes the user. Result recorded in the revision history.
 - Criteria 1 and 2 also verified by hand on phone plus laptop over the dev tunnel; recorded in the completion report.
 
 ## Open questions
@@ -103,3 +103,6 @@ None.
 ## Revision history
 ### 2026-10-06
 Created as Draft, pulled forward from milestone 5 to milestone 2 by the owner. Approved the same day with three decisions: auth by six-digit email code (the email also carries a link); the agent applies migrations with an owner-issued access token kept in `.env.local`; sign-in is progressively disclosed after the first capture, never on first launch. OAuth providers rejected because installed PWAs on iOS lose the session on the redirect.
+
+### 2026-10-06, later
+Criterion 6 verified against the live project with `supabase/tests/rls-isolation.mjs`: the second user sees 0 of the owner's rows, an update of the owner's row by id affects 0 rows, an insert claiming the owner's `user_id` is stamped to the second user by the trigger, and a request with no user is refused with 401. The throwaway user is deleted at the end; no rows remain. Impact on completed work: none.

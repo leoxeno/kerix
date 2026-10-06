@@ -27,3 +27,4 @@ Copy [TEMPLATE.md](TEMPLATE.md). Keep it short enough to read in two minutes and
 |---|---|---|---|
 | 001 | [Capture inbox](001-capture-inbox.md) | Done | 1 |
 | 002 | [Sync across devices](002-sync.md) | Implementing | 2 |
+| 003 | [Deploy to Cloudflare Pages](003-deploy.md) | Draft | 2 |
