@@ -8,17 +8,23 @@ Built in public by [Leo Xeno](https://github.com/leoxeno). Zero running cost by 
 
 ## Status
 
-Version 0.1. Capture works and persists on each device; nothing crosses between devices yet. Follow the build order in [docs/PRODUCT.md](docs/PRODUCT.md).
+Version 0.2. Capture works and persists on each device, and signed-in devices now exchange thoughts through a relay in the background. Follow the build order in [docs/PRODUCT.md](docs/PRODUCT.md); the pick-up page is [docs/STATUS.md](docs/STATUS.md).
 
 | Milestone | What | State |
 |---|---|---|
 | 1 | Quick capture inbox, local-first | done |
-| 2 | Sync across devices | next |
+| 2 | Sync across devices | working, last hand checks pending |
 | 3 | Done / archive | planned |
 | 4 | Tags | planned |
 | 5 | Search | planned |
 | 6 | Dispatch to a machine | vision |
 | 7 | On-device AI over your own thoughts | vision |
+
+## Sync, as it runs today
+
+![Two phones side by side. A thought typed on the left one appears on the right one about a second later, with the header reading SYNCED on both.](docs/media/sync-demo.gif)
+
+Two phone-sized browsers signed in as the same person, recorded on 6 October 2026 against the development build. Each thought is written to the left device's own database first and shown at once; the sync engine then pushes it to the relay, the relay notifies the right device, and the right device pulls it, in about a second end to end. Airplane mode changes nothing on the device that is typing: the thought waits in an outbox and leaves when the connection returns. Not finished yet: the device label on pulled rows, deployment, and the self-updating install. Spec: [docs/specs/002-sync.md](docs/specs/002-sync.md).
 
 ## How it is built
 
@@ -40,6 +46,7 @@ Spec-driven. The repository is the source of truth, not any chat. Agent rules li
 ```bash
 npm install
 ./scripts/setup-dev.sh   # once: git hooks
+cp .env.example .env.local   # optional: fill in a Supabase project to turn sync on; without it the app is local only
 npm run dev        # on your LAN too, so you can open it on your phone
 npm test
 npm run build

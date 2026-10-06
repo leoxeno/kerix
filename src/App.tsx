@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Settings } from './features/auth/Settings'
 import { SignIn } from './features/auth/SignIn'
 import { SyncPrompt } from './features/auth/SyncPrompt'
@@ -15,6 +15,11 @@ export default function App() {
   const { session } = useSession()
   const status = useSyncStatus(session)
   const [sheet, setSheet] = useState<Sheet>('none')
+
+  // A session from any source (another tab, the one-tap link) closes the sign-in sheet (spec 002 criterion 10).
+  useEffect(() => {
+    if (session) setSheet((current) => (current === 'signin' ? 'none' : current))
+  }, [session])
 
   const dot =
     status === 'synced' || status === 'syncing'
