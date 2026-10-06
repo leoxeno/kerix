@@ -7,17 +7,15 @@ Updated 2026-10-06. The one page to read when picking Kerix up cold. Keep it sho
 | Spec | Status | Note |
 |---|---|---|
 | 001 Capture inbox | Done | Verified on Android. |
-| 002 Sync across devices | Implementing | Criteria 1, 6, 10, 11 met (10 and 11 implemented and verified 2026-10-06 evening; 10 also seen live in a two-tab replay). Criterion 2: offline drain shown with one thought, the ordered pair still to repeat. Criterion 9 not run. **Last two hand checks pending, then Done.** |
+| 002 Sync across devices | Done | All eleven criteria met on 2026-10-06; criteria 2 and 9 by the owner's hand test at night. |
 | 003 Deploy to Cloudflare Pages | Draft | Awaiting owner approval. Needed before daily use of sync. |
 | ADR-0005 Performance budget | Proposed | Owner stated the principle on 2026-10-06; numbers measured; awaiting approval. |
 
-Build order: capture → sync → done → tags → search (changed by the owner on 2026-10-06, see PRODUCT.md).
+Build order: capture → sync → done → tags → search (changed by the owner on 2026-10-06, see PRODUCT.md). **Stages, decided 2026-10-06:** worm (a dependable todo app, now) → cocoon (undefined) → butterfly (the dispatcher). Nothing beyond the worm is scheduled.
 
 ## Next action
 
-Owner runs spec 002 criteria 2 (airplane mode on, two thoughts, airplane mode off, order on the laptop) and 9 (sign out keeps thoughts, header reads LOCAL); the agent marks 002 Done. Then the project pauses by the owner's decision (2026-10-06).
-
-On return: owner approves or amends spec 003 (three draft choices in its revision history) and ADR-0005 (budgets); the agent implements 003 (Phase B), installs on both devices, re-records the README demo on the deployed build, then takes issue #4 and the lazy-chunk and fonts work from ADR-0005.
+**Paused by the owner on 2026-10-06 with spec 002 Done.** On return, in this order: (1) owner approves or amends spec 003 (deploy; three draft choices in its revision history) and ADR-0005 (performance budget); (2) agent implements 003, both devices install the deployed app, README demo re-recorded on it; (3) owner picks the worm-stage capabilities in PRODUCT.md and the agent writes the next spec (004, done / archive is first in the build order); (4) issue #4 and the lazy-chunk and fonts work from ADR-0005 when they fit.
 
 ## Environment notes for the agent
 

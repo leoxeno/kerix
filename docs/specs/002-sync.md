@@ -1,6 +1,6 @@
 # Spec 002 · Sync across devices
 
-**Status:** Implementing · **Milestone:** 2 · **Owner approval:** approved 2026-10-06
+**Status:** Done · **Milestone:** 2 · **Owner approval:** approved 2026-10-06 · **Done:** 2026-10-06
 
 ## Summary
 A thought captured on one device appears on every other signed-in device within seconds, and a thought captured offline is pushed without any user action once the device is back online. The device database stays the source of truth; the relay only carries changes between devices.
@@ -120,3 +120,6 @@ Found and reproduced: when the person taps the email's one-tap link *and* has th
 - The email says the link is for the laptop and the code is for the phone; "same browser" is a laptop assumption that misleads on a phone.
 - The email template moves into the repo at `supabase/auth/magic-link.html` and is applied from there, as the migrations are. Today it exists only on the server, which breaks "the repository is the source of truth".
 Impact on completed work: none; additive.
+
+### 2026-10-06, night · Done
+Owner ran the last hand checks on the phone and laptop over the dev tunnel: criterion 2 (airplane mode, two thoughts, both arrived on the laptop in order) and criterion 9 (sign out keeps the thoughts, header reads LOCAL) behaved as specified. With criteria 1 and 6 verified earlier the same day and 3, 4, 5, 7, 8, 10, 11 covered by tests (10 also by a live two-tab replay), every criterion is met. Status set to Done. Open follow-ups live in issue #4 (slab caption for pulled rows) and docs/STATUS.md.

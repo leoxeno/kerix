@@ -10,6 +10,16 @@ Owner chose all four, not the two I recommended. Build order was capture → don
 4. **Search.** Full-text across all thoughts, done included. Runs locally on the device's own database so it works offline.
 5. **Sync.** Now milestone 2. Every device's database reconciled through a relay in the background; the UI never waits on it. Spec 002.
 
+## Stages (decided by the owner 2026-10-06)
+
+The vision stays, the priorities are re-routed. Kerix grows like an insect: **worm, cocoon, butterfly.**
+
+- **Worm (now).** A todo app that simply works, in the sense of Todoist: capture, sync, done, tags, search, and whatever else a person needs to trust it with their day. Nothing else is scheduled until the worm is dependable on the phone and the laptop every day. Spec 003 (deploy) is the first step of daily use.
+- **Cocoon.** The bridge between a todo app and a dispatcher. Not defined yet; the owner defines it when the worm is dependable.
+- **Butterfly.** The task-machine dispatcher of docs/VISION.md horizon 2, then counsel in horizon 3. Issues #2 and #1. Not before the cocoon.
+
+Candidate worm-stage capabilities beyond the four of version 1, for the owner to pick from and order, each as its own spec: edit a thought, delete a thought, swipe actions, due dates and reminders, ordering or priority, lists or projects beyond tags, a done list that can be revisited. None is chosen yet.
+
 ## Milestone 2 and beyond (not v1)
 
 - Swipe actions on slabs (done, delete).

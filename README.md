@@ -8,12 +8,12 @@ Built in public by [Leo Xeno](https://github.com/leoxeno). Zero running cost by 
 
 ## Status
 
-Version 0.2. Capture works and persists on each device, and signed-in devices now exchange thoughts through a relay in the background. Follow the build order in [docs/PRODUCT.md](docs/PRODUCT.md); the pick-up page is [docs/STATUS.md](docs/STATUS.md).
+Version 0.2. Capture works and persists on each device, and signed-in devices exchange thoughts through a relay in the background. Kerix grows in stages: first a dependable todo app, later the dispatcher; the stages are in [docs/PRODUCT.md](docs/PRODUCT.md). Follow the build order in [docs/PRODUCT.md](docs/PRODUCT.md); the pick-up page is [docs/STATUS.md](docs/STATUS.md).
 
 | Milestone | What | State |
 |---|---|---|
 | 1 | Quick capture inbox, local-first | done |
-| 2 | Sync across devices | working, last hand checks pending |
+| 2 | Sync across devices | done |
 | 3 | Done / archive | planned |
 | 4 | Tags | planned |
 | 5 | Search | planned |
