@@ -10,11 +10,11 @@
 │ Dexie (IndexedDB)  ◄─────┼───────►│  Auth            │◄───────┤ the laptop at home │
 │   source of truth        │        │  Realtime        │        │                    │
 └──────────────────────────┘        └──────────────────┘        └────────────────────┘
-          horizon 1                      milestone 5                   horizon 2
+          horizon 1                      milestone 2                   horizon 2
 ```
 
 - **The device database is the source of truth.** The UI reads from Dexie through live queries and writes to Dexie. Nothing in the UI awaits the network.
-- **Sync is a background process** that reconciles the device database with the relay. It is a separate module with no UI dependency, added in milestone 5. Until then the app is fully functional on one device.
+- **Sync is a background process** that reconciles the device database with the relay (milestone 2, spec 002). `src/sync/engine.ts` has no React and no browser globals: push the outbox, pull since a server cursor, last-writer-wins by `updatedAt`. `triggers.ts` wires browser events (online, visible, a write landing in the outbox, a heartbeat); `runtime.ts` is the app's single engine plus the realtime hint. Signed out, the engine is idle and the app is fully functional on one device.
 - **Daimons pull.** A daimon polls or subscribes to the relay for dispatched tasks it is able to run. Nothing pushes into a daimon, so a laptop behind a home router works without any port forwarding. Horizon 2.
 
 ## Layers inside the PWA
@@ -24,7 +24,7 @@ src/
   app/          screens and composed components (App shell, Inbox, Capture)
   features/     one folder per capability, each with its own components, hooks, tests
   data/         Dexie database, the Thought repository, migrations
-  sync/         (milestone 5) reconciliation with the relay
+  sync/         engine, store, relay interface, Supabase adapter, triggers, runtime
   ui/           primitives that only know tokens: Seam, Slab, Diamond, Glint
   index.css     tokens, both modes
 ```
@@ -41,6 +41,6 @@ The service worker precaches the app shell and assets so a cold start works offl
 
 ## What is deliberately not here yet
 
-- Sync protocol and conflict policy: specified with milestone 5. The data model already carries what it needs (`updatedAt`, soft delete).
+- Field-level merge, purge of soft-deleted rows, end-to-end encryption: see spec 002 non-goals.
 - Daimon registration and the dispatch message format: specified with horizon 2.
 - On-device inference: horizon 3.

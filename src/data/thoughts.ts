@@ -2,7 +2,7 @@ import { db, type Thought } from './db'
 import { getDeviceId } from './device'
 import { parseTags } from './tags'
 
-/** The only module that touches Dexie. Features call these functions. */
+/** The only module that touches Dexie for user-driven writes. Features call these functions. */
 
 let lastStamp = 0
 
@@ -13,7 +13,7 @@ function nextTimestamp(): string {
   return new Date(now).toISOString()
 }
 
-/** Adds a thought. Returns null, and writes nothing, when the text is blank. */
+/** Adds a thought and queues it for sync in the same transaction. Returns null, and writes nothing, when the text is blank. */
 export async function addThought(input: { text: string }): Promise<Thought | null> {
   const text = input.text.trim()
   if (!text) return null
@@ -28,7 +28,10 @@ export async function addThought(input: { text: string }): Promise<Thought | nul
     deletedAt: null,
     device: getDeviceId(),
   }
-  await db.thoughts.add(thought)
+  await db.transaction('rw', db.thoughts, db.outbox, async () => {
+    await db.thoughts.add(thought)
+    await db.outbox.put({ id: thought.id })
+  })
   return thought
 }
 
@@ -39,4 +42,9 @@ export function listOpen(): Promise<Thought[]> {
     .reverse()
     .filter((t) => t.doneAt === null && t.deletedAt === null)
     .toArray()
+}
+
+/** Number of thoughts on this device, any state. Used to decide when to offer sync. */
+export function countAll(): Promise<number> {
+  return db.thoughts.count()
 }

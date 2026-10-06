@@ -2,7 +2,10 @@ import { db } from './db'
 import { addThought, listOpen } from './thoughts'
 import { parseTags } from './tags'
 
-beforeEach(() => db.thoughts.clear())
+beforeEach(async () => {
+  await db.thoughts.clear()
+  await db.outbox.clear()
+})
 
 describe('parseTags (criterion 7)', () => {
   it('lowercases and deduplicates hashtags in order of first appearance', () => {
@@ -32,6 +35,11 @@ describe('addThought', () => {
   it('never leaves updatedAt before createdAt (invariant)', async () => {
     const t = await addThought({ text: 'x' })
     expect(t && t.updatedAt >= t.createdAt).toBe(true)
+  })
+
+  it('queues every new thought in the outbox (spec 002)', async () => {
+    const t = await addThought({ text: 'sync me' })
+    expect(await db.outbox.get(t!.id)).toEqual({ id: t!.id })
   })
 
   it('persists in the database (criterion 4)', async () => {

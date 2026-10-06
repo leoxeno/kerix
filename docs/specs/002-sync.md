@@ -1,6 +1,6 @@
 # Spec 002 · Sync across devices
 
-**Status:** Approved · **Milestone:** 2 · **Owner approval:** approved 2026-10-06
+**Status:** Implementing · **Milestone:** 2 · **Owner approval:** approved 2026-10-06
 
 ## Summary
 A thought captured on one device appears on every other signed-in device within seconds, and a thought captured offline is pushed without any user action once the device is back online. The device database stays the source of truth; the relay only carries changes between devices.
