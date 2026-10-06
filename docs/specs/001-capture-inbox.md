@@ -1,6 +1,6 @@
 # Spec 001 · Capture inbox
 
-**Status:** Draft · **Milestone:** 1 · **Owner approval:** pending
+**Status:** Implementing · **Milestone:** 1 · **Owner approval:** approved 2026-10-06
 
 ## Summary
 A single text field. Type a thought, press Enter, it is saved on the device and appears at the top of the inbox. The inbox shows every open thought, newest first, and survives reloads and offline use.
@@ -31,7 +31,9 @@ Kerix does nothing yet. Capture is the non-negotiable core; every later feature 
 - One user, one device for now. No auth.
 - `crypto.randomUUID()` and IndexedDB are available (all target browsers).
 - The device clock is trusted for `createdAt`.
-- The `device` id is created on first launch and kept in `localStorage`.
+- The `device` id is created on first launch and kept in `localStorage`. The label shown is the literal "this device" until a settings screen exists.
+- Relative times are computed at render and update only on re-render.
+- Timestamps on one device are strictly increasing: if two captures land in the same millisecond, the second is nudged forward by one, so "newest first" is never ambiguous.
 
 ## Behaviour
 ```
@@ -63,9 +65,8 @@ Each slab shows the text, the relative time ("2 min ago", "yesterday"), and the 
 - Criterion 4 and 5 are covered by the repository test (persistence is the database) and verified by hand on a phone in airplane mode; recorded in the completion report.
 
 ## Open questions
-- Relative time: update live every minute, or only on re-render? Proposal: only on re-render; a thought list is not a clock.
-- Device label: hard-code "this device" until a settings screen exists? Proposal: yes.
+None.
 
 ## Revision history
 ### 2026-10-06
-Created as Draft.
+Created as Draft. Approved the same day with the proposals accepted: relative time updates only on re-render; the device label is the literal "this device" until a settings screen exists. Both recorded under Assumptions.

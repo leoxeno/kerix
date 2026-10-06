@@ -21,7 +21,7 @@ PATTERNS='gmail\.com|hotmail\.com|outlook\.com'
 if [[ -f .privacy-patterns ]]; then
   PATTERNS="$PATTERNS|$(grep -v '^\s*#' .privacy-patterns | grep -v '^\s*$' | paste -sd '|' -)"
 fi
-if grep -rniE "$PATTERNS" --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=dist --exclude=.privacy-patterns . ; then
+if grep -rniIE "$PATTERNS" --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=dist --exclude-dir=.specstory --exclude=.privacy-patterns . ; then
   echo "Privacy scan matched. Remove the identifier before committing." >&2
   exit 1
 fi
