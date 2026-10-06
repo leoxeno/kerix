@@ -1,6 +1,6 @@
 # Spec 001 · Capture inbox
 
-**Status:** Implementing · **Milestone:** 1 · **Owner approval:** approved 2026-10-06
+**Status:** Done · **Milestone:** 1 · **Owner approval:** approved 2026-10-06 · **Done:** 2026-10-06
 
 ## Summary
 A single text field. Type a thought, press Enter, it is saved on the device and appears at the top of the inbox. The inbox shows every open thought, newest first, and survives reloads and offline use.
@@ -70,3 +70,5 @@ None.
 ## Revision history
 ### 2026-10-06
 Created as Draft. Approved the same day with the proposals accepted: relative time updates only on re-render; the device label is the literal "this device" until a settings screen exists. Both recorded under Assumptions.
+
+Implemented in commit 017d227. Criteria 4 and 5 verified by the owner on an Android phone over a dev tunnel: thoughts persisted across reload and were captured in airplane mode. Marked Done.

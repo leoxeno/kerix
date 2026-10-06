@@ -8,15 +8,15 @@ Built in public by [Leo Xeno](https://github.com/leoxeno). Zero running cost by 
 
 ## Status
 
-Version 0.1, the foundation. Nothing works yet except the frame. Follow the build order in [docs/PRODUCT.md](docs/PRODUCT.md).
+Version 0.1. Capture works and persists on each device; nothing crosses between devices yet. Follow the build order in [docs/PRODUCT.md](docs/PRODUCT.md).
 
 | Milestone | What | State |
 |---|---|---|
-| 1 | Quick capture inbox, local-first | next |
-| 2 | Done / archive | planned |
-| 3 | Tags | planned |
-| 4 | Search | planned |
-| 5 | Sync across devices | planned |
+| 1 | Quick capture inbox, local-first | done |
+| 2 | Sync across devices | next |
+| 3 | Done / archive | planned |
+| 4 | Tags | planned |
+| 5 | Search | planned |
 | 6 | Dispatch to a machine | vision |
 | 7 | On-device AI over your own thoughts | vision |
 

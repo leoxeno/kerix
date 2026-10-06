@@ -25,4 +25,5 @@ Copy [TEMPLATE.md](TEMPLATE.md). Keep it short enough to read in two minutes and
 
 | # | Spec | Status | Milestone |
 |---|---|---|---|
-| 001 | [Capture inbox](001-capture-inbox.md) | Implementing | 1 |
+| 001 | [Capture inbox](001-capture-inbox.md) | Done | 1 |
+| 002 | [Sync across devices](002-sync.md) | Draft | 2 |

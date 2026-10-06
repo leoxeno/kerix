@@ -44,6 +44,10 @@ export default defineConfig({
       },
     }),
   ],
+  server: {
+    // Lets a dev tunnel (Cloudflare quick tunnel) reach the dev server for phone testing. Dev only.
+    allowedHosts: ['.trycloudflare.com'],
+  },
   test: {
     environment: 'jsdom',
     globals: true,

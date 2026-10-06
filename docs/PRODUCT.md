@@ -2,12 +2,13 @@
 
 ## Version 1 scope (decided 2026-10-06)
 
-Owner chose all four, not the two I recommended. Build order is still capture → done → tags → search, each shippable on its own.
+Owner chose all four, not the two I recommended. Build order was capture → done → tags → search. **Changed 2026-10-06:** after testing capture on two devices the owner pulled sync forward. Order is now **capture → sync → done → tags → search**, each shippable on its own. Reason: the gap between two devices is the product; feeling it early beats polishing the inbox.
 
 1. **Quick capture inbox.** One text box, Enter saves. Local write first, sync in background. Never a spinner for your own thought.
 2. **Done / archive state.** Tap the diamond. Done thoughts fade into a done list you can revisit and un-done.
 3. **Tags.** `#writing #money #life` typed inline in the thought are parsed into tags. Tap a tag to filter. No separate tag manager in v1.
 4. **Search.** Full-text across all thoughts, done included. Runs locally on the device's own database so it works offline.
+5. **Sync.** Now milestone 2. Every device's database reconciled through a relay in the background; the UI never waits on it. Spec 002.
 
 ## Milestone 2 and beyond (not v1)
 
