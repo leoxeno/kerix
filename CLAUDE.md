@@ -1,5 +1,8 @@
 # Kerix · agent rules
 
+Model routing: read [.agents/model-policy.md](.agents/model-policy.md) (v1.0.0); it supersedes older routing only.
+@.agents/model-policy.md
+
 Kerix is a herald: capture a thought anywhere, dispatch it to a machine that does the work. Local-first PWA. Built in public by Leo Xeno. All rights reserved.
 
 This file is the stable root of the spec tree. It changes rarely. Everything that changes often lives in a linked file. `AGENTS.md` is a symlink to this file; `scripts/check.sh` fails if they drift.
@@ -45,7 +48,7 @@ A failing test is evidence, not automatically the truth. The approved spec is th
 
 ## Context and model tiers
 
-Context is a budget spent per turn: checkpoint at every task boundary into `docs/STATUS.md` or the spec, offer a fresh session with a paste-ready resume prompt, and read narrowly. Phase A is session work. Phase B delegates by tier: **Opus = judgment** (verification against acceptance criteria never runs below it), **Sonnet = volume** (implementing an approved spec, tests, file sweeps), **Haiku = clerical**. When the session runs Fable, Fable orchestrates and rules; it is never a subagent tier. A cheap tier may gather evidence; it may never rule on it. These lines survive compaction; the full rule is in [.claude/rules/context-economy.md](.claude/rules/context-economy.md).
+Context is a budget spent per turn: checkpoint at every task boundary into `docs/STATUS.md` or the spec, offer a fresh session with a paste-ready resume prompt, and read narrowly. Phase A is session work. Phase B delegates implementation to workers and acceptance to separate reviewers. Provider routing follows `.agents/model-policy.md`. These lines survive compaction; the full rule is in [.claude/rules/context-economy.md](.claude/rules/context-economy.md).
 
 ## Non-negotiables
 
